@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stéphane Février</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f0f2f5;--card:#fff;--tx:#1c1e21;--mut:#65676b;--blue:#1877f2;--line:#dddfe2}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#18191a;--card:#242526;--tx:#e4e6eb;--mut:#b0b3b8;--blue:#4599ff;--line:#3e4042}}
+:root[data-theme="dark"]{--bg:#18191a;--card:#242526;--tx:#e4e6eb;--mut:#b0b3b8;--blue:#4599ff;--line:#3e4042}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:15px}
+a{color:inherit}
+/* Landing */
+.lt{max-width:440px;margin:0 auto;padding:40px 20px;text-align:center}
+.av{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,#8ab4f8,#5f6caf);font-size:1.1em}
+.lt .av{width:110px;height:110px;font-size:56px;border:4px solid var(--card)}
+.lt h1{margin:14px 0 4px}.lt p{color:var(--mut);margin:0 0 26px}
+.btn{display:block;padding:16px;margin:12px 0;border-radius:14px;color:#fff;text-decoration:none;font-weight:600;font-size:17px}
+.b-fb{background:#1877f2}.b-ig{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)}.b-in{background:#0a66c2}
+.off{opacity:.45;pointer-events:none}
+.foot{margin-top:40px;font-size:12px;color:var(--mut)}
+/* Facebook */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:8px 16px}
+.top b{color:var(--blue);font-size:26px;letter-spacing:-1px}
+.top .s{flex:1;background:var(--bg);border-radius:20px;padding:8px 14px;color:var(--mut);max-width:260px}
+.top a{margin-left:auto;text-decoration:none;color:var(--mut);font-size:13px}
+.wrap{max-width:940px;margin:0 auto}
+.cover{height:190px;background:linear-gradient(120deg,#5c7cfa,#22b8cf 60%,#94d82d);border-radius:0 0 10px 10px}
+.head{background:var(--card);padding:0 20px 12px;border-radius:0 0 10px 10px;margin-bottom:14px}
+.head .av{width:130px;height:130px;font-size:66px;margin-top:-65px;border:4px solid var(--card)}
+.head h2{margin:8px 0 2px;font-size:26px}.head small{color:var(--mut)}
+.tabs{display:flex;gap:18px;border-top:1px solid var(--line);margin-top:12px;padding-top:10px;color:var(--mut);font-weight:600;overflow-x:auto}
+.tabs span:first-child{color:var(--blue)}
+.cols{display:grid;grid-template-columns:340px 1fr;gap:14px;padding:0 8px}
+@media(max-width:760px){.cols{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:10px;padding:14px 16px;margin-bottom:14px;box-shadow:0 1px 2px rgba(0,0,0,.15);overflow:hidden}
+.card h3{margin:0 0 10px;font-size:19px}
+.about div{margin:7px 0;color:var(--tx)}
+.fr{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;font-size:12px;font-weight:600}
+.fr .av{width:100%;aspect-ratio:1;border-radius:8px;font-size:32px}
+.ph{position:relative;margin:10px -16px;min-height:220px;display:flex;align-items:center;justify-content:center;font-size:84px}
+.ph i{position:absolute;left:10px;right:10px;bottom:8px;font-style:normal;font-size:12px;background:rgba(0,0,0,.55);color:#fff;padding:4px 8px;border-radius:6px;line-height:1.3}
+.ph.sm{min-height:150px;font-size:56px}
+.ph.ck{margin:10px -16px}
+.ph.doc{background:#fff;color:#222;font:13px/1.5 monospace;flex-direction:column;align-items:flex-start;padding:14px 18px;font-size:13px}
+.post .who{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+.post .who .av{width:40px;height:40px;font-size:22px}
+.post .who small{color:var(--mut);display:block}
+.post p{margin:6px 0}
+.st{display:flex;justify-content:space-between;color:var(--mut);font-size:13px;padding:6px 0;border-bottom:1px solid var(--line)}
+.act{display:flex;justify-content:space-around;color:var(--mut);font-weight:600;padding:8px 0 4px}
+.cm{display:flex;gap:8px;margin-top:8px}.cm .av{width:32px;height:32px;font-size:16px;flex:none}
+.cm div{background:var(--bg);border-radius:14px;padding:6px 12px}.cm b{display:block;font-size:13px}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.post .ph img{position:static;height:auto;display:block}
+.post .ph:has(img){min-height: 0}
+.key{display:none}
+.e .key{display:block;position:absolute;top:6px;left:6px;background:#fab005;color:#000;font-size:11px;padding:2px 6px;border-radius:4px;z-index:2}
+.e [data-k]{cursor:pointer;outline:2px dashed #fab005}
+.ig{max-width:935px;margin:0 auto;padding:16px}
+.igh{display:flex;gap:24px;align-items:center;flex-wrap:wrap}.igh .av{width:110px;height:110px;font-size:56px}
+.igh h2{margin:0 0 8px;font-weight:400}.igh span{margin-right:18px}
+.hl{display:flex;gap:16px;margin:18px 0;overflow-x:auto;font-size:12px;text-align:center}
+.hl div{min-width:70px}.hl .av{width:64px;height:64px;font-size:28px;border:2px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}.grid>div{min-width:0;overflow:hidden}
+.grid .ph{margin:0;min-height:0;aspect-ratio:1;font-size:44px;cursor:pointer}.grid .ph i{display:none}.grid .ph.doc{font-size:8px;padding:6px;align-items:flex-start;overflow:hidden}
+.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9;align-items:center;justify-content:center;padding:14px}
+.mo{background:var(--card);border-radius:10px;max-width:480px;width:100%;max-height:92%;overflow:auto;padding:0 16px 14px}
+.mo .ph{margin:0 -16px 10px}
+.mo .ph:has(img){min-height:0;aspect-ratio:auto;}
+.mo .ph img{position:static;width:auto;height:auto;max-width:100%;max-height: 70vh;object-fit:contain;display:block;margin:0 auto}
+.li{background:#f3f2ef;--blue:#0a66c2}
+.li .cover{background:linear-gradient(120deg,#0a66c2,#70b5f9);border-radius:10px 10px 0 0;height:140px}
+.li .card h3{font-size:18px}.li .card hr{border:0;border-top:1px solid var(--line);margin:12px 0}
+.li .lt2{color:var(--mut);font-size:13px}
+.li .tag{display:inline-block;border:1px solid var(--line);border-radius:16px;padding:3px 12px;margin:3px;font-size:13px}
+/* teacher mode */
+.t .risk{outline:3px solid #e03131;outline-offset:-3px}
+.note{display:none}
+.t .note{display:block;background:#fff5f5;color:#8a1c1c;border-left:4px solid #e03131;padding:8px 12px;margin:10px -16px -14px;font-size:13px}
+.t mark{background:#ffe066;color:#000;padding:0 2px}
+mark{background:none;color:inherit;padding:0}
+#tt{position:fixed;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));opacity:.25;border:0;background:none;color:var(--tx);cursor:pointer;font-size:12px}
+.t #tt{opacity:1;background:#e03131;color:#fff;border-radius:8px;padding:6px 10px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<button id="tt" title="Correction">Correction</button>
+<script>
+/* ============ DONNÉES FICTIVES — modifiez ici ============
+   Dans les textes, <mark>…</mark> repère une donnée sensible (visible seulement en mode correction).
+   "risk" sur un post = explication affichée en mode correction. */
+const D = {
+  name: "Stéphane Février", avatar: "assets/stephane-portrait.jpg", /* ← photo de profil, ex: "images/portrait.jpg" */
+  banner1: "assets/couverture-loire.jpg", /* ← bannière (Facebook + LinkedIn), ex: "images/banniere.jpg" */
+  dog: "Star", emoji: "🧑",
+  tagline: "Guitariste du dimanche · Papa de Star 🐶 · Voyageur",
+  about: [
+    "🎓 A étudié à l'<mark><b>Université de Tours</b></mark>",
+    "🏠 Habite à <b><mark>Tours</mark></b>",
+    "❤️ En couple",
+    "🎂 Né(e) le <mark>14 mars 1985</mark>",
+    "📻 Musique, randonnée, foot"
+  ],
+  aboutRisk: "Lieu d'études + ville + date de naissance complète : base idéale pour usurpation d'identité, un hameçonnage ciblé ou deviner les mots de passe ou réponses aux questions secrètes.",
+  friends: [["Monique Février","👵"],["Claire Février","👩"],["Julien Roche","🧔"],["Nadia B.","👩‍🦱"],["Marc Delmas","👨‍🦳"],["Sophie L.","👱‍♀️"]],
+  friendsRisk: "Liste d'amis publique : permet de cartographier famille et proches (attaques par usurpation de proche).",
+  posts: [
+    {t:"Il y a 2 h", place:"Lyon, France", txt:"Enfin en vacances !! ☀️ On est à <mark>Lyon jusqu'au 12 octobre</mark>. Pralines à volonté 😍",
+     ph:{src:"assets/lyon.jpg",e:"🌇🚋",bg:"linear-gradient(#ffd8a8,#ff8787)",d:"Stéphane devant le funiculaire, Lyon"}, likes:87, com:[["Claire Février","Profite bien grand frère !! Bisous 😘"],["Julien Roche","Jaloux 😭 rapporte-moi du pâté en croûte !"],["Monique Février","Profitez ! Pendant que Star se la coule douce chez son papy et sa mamie 😍"]],
+     risk:"Localisation en temps réel + dates d'absence : la maison est vide jusqu'au 12 octobre (risque de cambriolage)."},
+    {t:"Hier", txt:"Pizza 4 fromages ou rien 🍕 Quelqu'un d'autre dans la team ananas ? Non ? Bon.", likes:19, com:[["Julien Roche","Hérétique !!"]]},
+    {t:"12 septembre", txt:"De retour de rando ! 🐶⛰️ Sale, épuisée, mais heureuse !",
+     ph:{src:"assets/star-balade.png",e:"🐕",bg:"linear-gradient(#b2f2bb,#69db7c)",d:"Star, labrador, devant le portail — plaque visible : « 12 rue des Tanneurs »"}, likes:142, com:[["Monique Février","Ma petite-fille ! Magnifique !! ❤️"],["Nadia B.","Trop mignonne !"]],
+     risk:"Adresse reconnaissable en s'appuyant sur le nom du magasin en arrière-plan."},
+    {t:"3 septembre", txt:"Vol pour Lisbonne enfin réservé ! Merci à moi-même 😂 ✈️",
+     ph:{src:"assets/carte-embarquement.jpg",doc:1,d:"Carte d'embarquement",html:"AIR FRANCE · AF1224 PARIS CDG → LISBONNE<br>Passager : <mark>FEVRIER / STEPHANE</mark><br>Réservation : <mark>XK4P9L</mark> · Siège 14C<br>Départ : 29 SEP 2026 · Porte K42"}, likes:31, com:[["Marc Delmas","Bon voyage !"]],
+     risk:"Photo de carte d'embarquement : numéro de réservation (PNR) + nom permettent d'accéder/modifier la réservation."},
+    {t:"21 août", txt:"Nouveau boulot, même (non-)envie de reprendre ! 😅",
+     ph:{src:"assets/badge-bureau.jpg",doc:1,d:"Badge posé sur le bureau",html:"<b>FIDUCIA ASSURANCES</b> — Tours<br>FÉVRIER Stéphane<br>Chargé de comptes · Matricule <mark>FA-30417</mark><br>▮▯▮▮▯▮▯▮▮▯▮"}, likes:24, com:[["Sophie L.","Ça te va bien ce badge 😄"]],
+     risk:"Badge d'entreprise : matricule et code-barres copiables (accès physique, usurpation auprès du support IT)."},
+    {t:"28 juillet", txt:"Article intéressant sur la transition énergétique : « Les Français et les voitures électriques » 📰", likes:9, com:[]},
+    {t:"14 mars", txt:"Merci à tous pour vos messages, <mark>41 ans</mark> déjà !! 🎂🎉",
+     com:[["Marc Delmas","Joyeux anniversaire <mark>mon cousin</mark>, on ne rajeunit pas !"],["Julien Roche","Bon anniversaire vieux !"]], likes:96,
+     risk:"On identifie un cousin et donc, peut-être, le nom de jeune fille de la mère qui est une réponse à une question-secrète fréquente."},
+    {t:"2 mars", txt:"Joyeux anniversaire à mon Papa ❤️",
+     ph:{src:"assets/photo-vintage.jpg",e:"👨‍👩‍👧‍👦🎂",bg:"linear-gradient(#fcc2d7,#faa2c1)",d:"Photo rétro d'un homme tenant son bébé dans les bras"}, likes:58,
+     com:[["<mark>Jo Delmas</mark>","Ton papa devait avoir à peine 16 ans quand <mark>ta mère</mark> nous l'a présenté ! Je ne regrette pas, c'est un beau-frère en or ! Joyeux anniversaire."],["Monique Février","Haha tu n'as pas toujours dit ça ! C'est qu'il avait peur pour sa petite soeur mon Jo !"],["Claire Février","Joyeux anniversaire Papounet d'amour ❤️"]],
+     risk:"Possibilité de déduire le nom de jeune fille de la mère qui est une réponse à une question-secrète fréquente."},
+    {t:"15 février", txt:"PSG–OL ce soir, on sort les maillots ⚽ Que le meilleur gagne (l'OL, évidemment).", likes:33, com:[["Marc Delmas","Rêve pas trop 😂"]]},
+    {t:"12 février", txt:"Restaurant à recommander : <b>Le Comptoir du Marché</b> à Tours. Le risotto aux cèpes 🤤", likes:27, com:[["Claire Février","On y va dimanche !"]]}
+  ]
+};
+
+/* ============ RENDU ============ */
+const $=s=>document.querySelector(s);
+let teacher=new URLSearchParams(location.search).get("teacher")==="1";
+const risk=(r)=>r?`<div class="note">⚠ ${r}</div>`:"";
+const cls=r=>r?" risk":"";
+
+function landing(){return `<div class="lt"><div class="av">${D.emoji}</div><h1>${D.name}</h1><p>${D.tagline}</p>
+<a class="btn b-fb" href="#/facebook">Facebook</a>
+<a class="btn b-ig" href="#/instagram">Instagram</a>
+<a class="btn b-in" href="#/linkedin">LinkedIn</a>
+<div class="foot">Fictional character created for educational purposes.</div></div>`}
+
+/* ===== IMAGES =====
+   Chaque photo (posts Facebook, publications Instagram) a une propriété  src:""  dans les données.
+   Pour utiliser votre image : src:"images/mon-chien.jpg"  (chemin relatif, fichier placé à côté de ce HTML).
+   Tant que src est vide, un placeholder (emoji + description) s'affiche.
+   Photo de profil : D.avatar, bannière : D.banner1 (en haut du fichier).
+   (Option : ?edit=1 dans l'URL pour tester un remplacement par clic, sans toucher au code.) */
+const IMG={};
+let K=0,cur="fb";
+function src(k){let v=null;try{v=localStorage.getItem("img:"+k)}catch(e){}return v||IMG[k]}
+function photo(p,c="",key){const k=key||cur+"-"+(K++),s=p.src||src(k),l=`<b class="key">${k}</b>`;
+  if(s) return `<div class="ph ${c}" data-k="${k}"><img src="${s}" alt="${p.d}">${l}</div>`;
+  if(p.doc) return `<div class="ph doc ${c}" data-k="${k}" role="img" aria-label="${p.d}"><div>${p.html}</div><i>📷 ${p.d}</i>${l}</div>`;
+  return `<div class="ph ${c}" data-k="${k}" style="background:${p.bg}" role="img" aria-label="${p.d}">${p.e}<i>📷 ${p.d}</i>${l}</div>`}
+
+function post(p){return `<div class="card post${cls(p.risk)}"><div class="who"><div class="av">${D.emoji}</div>
+<div><b>${D.name}</b>${p.place?` <span style="color:var(--mut)">est à <b>${p.place}</b></span>`:""}<small>${p.t} · 🌍</small></div></div>
+<p>${p.txt}</p>${p.ph?photo(p.ph):""}
+<div class="st"><span>👍❤️ ${p.likes}</span><span>${p.com.length} commentaire${p.com.length>1?"s":""}</span></div>
+<div class="act"><span>👍 J'aime</span><span>💬 Commenter</span><span>↗ Partager</span></div>
+${p.com.map(c=>`<div class="cm"><div class="av">🙂</div><div><b>${c[0]}</b>${c[1]}</div></div>`).join("")}${risk(p.risk)}</div>`}
+
+function facebook(){return `<div class="top"><b>facebook</b><div class="s">🔍 Rechercher</div><a href="#/">← Retour</a></div>
+<div class="wrap"><div class="cover"></div><div class="head"><div class="av">${D.emoji}</div><h2>${D.name}</h2><small>214 amis</small>
+<div class="tabs"><span>Publications</span><span>À propos</span><span>Amis</span><span>Photos</span></div></div>
+<div class="cols"><div>
+<div class="card about${cls(D.aboutRisk)}"><h3>Intro</h3>${D.about.map(a=>`<div>${a}</div>`).join("")}${risk(D.aboutRisk)}</div>
+<div class="card${cls(D.friendsRisk)}"><h3>Amis</h3><div class="fr">${D.friends.map(f=>`<div><div class="av">${f[1]}</div>${f[0]}</div>`).join("")}</div>${risk(D.friendsRisk)}</div>
+</div><div>${D.posts.map(post).join("")}</div></div></div>`}
+
+/* ===== INSTAGRAM ===== */
+const IG={bio:"Guitare 🎸 · Star 🐶 · Voyages ✈️<br>📍 Tours, France<br>Toujours un café à la main ☕",
+ user:"steph_fev85", userRisk:"Année de naissance dans l'identifiant : aide à deviner mots de passe et à confirmer l'âge.",
+ hl:[["🐶","Star"],["✈️","Vacances"],["🎸","Guitares"],["🏠","Chez moi"]],
+ P:[
+ {src:"assets/lyon2.jpg",e:"🌇",bg:"linear-gradient(#ffd8a8,#ff922b)",d:"Vue de la fontaine Bartholdi sur la place des Terreaux",cap:"Lyon, jour 1 ☀️ #Lyon #vacances #gastronomie",loc:"Hôtel de Ville, Lyon 2",t:"Il y a 3 h",likes:64,c:[["Julien Roche","Photo de ouf 😍"]],risk:"Géolocalisation en direct : cohérent avec Facebook, l'absence du domicile est confirmée."},
+ {src:"assets/star-jardin.jpg",e:"😴🐕",bg:"linear-gradient(#e9ecef,#adb5bd)",d:"Star endormie sur le canapé",cap:"Heureusement que Mamie est toujours là pour s'occuper de Star !",t:"Hier",likes:174,c:[]},
+ {src:"assets/billet-olympia.jpg",e:"🎤🔥",bg:"linear-gradient(#ffe066,#f76707)",d:"Un ticket de concert : Les Rivages Electriques, Olympia, 19 juin 2021",cap:"Le meilleur concert de ma vie, déjà cinq ans... 19/06/2021, Rivages Electriques❤️ #jamaisoublié #livemusic",loc:"Olympia, Paris",t:"20 juin",likes:241,c:[["Nadia B.","Quelle soirée c'était !!"]],risk:"Date « marquante » : très utilisée en mot de passe / code PIN / réponse secrète."},
+  {src:"assets/groupe-2003.jpg",e:"🏠🎸",bg:"linear-gradient(#c5f6fa,#66d9e8)",d:"Photo ancienne : trois garçons, la vingtaine, jouent de la guitare dans un garage",cap:"On se sent vieux... Mon premier groupe, dans le garage de l'ancienne maison de mes parents à Saint-Branchs... 2003",t:"24 avril",likes:66,c:[],risk:"Photo du domicile : façade, numéro et nom sur la boîte aux lettres permettent de le localiser."},
+ {src:"assets/star-bandana.jpg",e:"🐕",bg:"linear-gradient(#b2f2bb,#51cf66)",d:"Star au parc, bandana fleuri",cap:"Star a 4 ans aujourd'hui 🎂🐶 #labrador #star #chienheureux",t:"7 mai",likes:203,c:[["Claire Février","Joyeux anniv Star !! 🥳"]],risk:"Nom du chien + âge, donc année de naissance (possible mot de passe ou question secrète."},
+ {src:"assets/guitare-salon.jpg",e:"🎸",bg:"linear-gradient(#ffc9c9,#e03131)",d:"Fender Stratocaster posée dans le salon",cap:"Ma Strat de 1992, jamais vendue, jamais échangée 🎸 #fender #stratocaster",t:"09 avril",likes:118,c:[["Marc Delmas","Toujours aussi belle"]],risk:"Montre du matériel qui pourrait attirer des voleurs"},
+ {src:"assets/concert-scene.jpg",doc:1,d:"Billet de concert posé sur la table",html:"<b>LE TEMPS MACHINE</b> · Joué-lès-Tours<br>Sam. 19/06/2021 · 20h30<br><mark>FEVRIER STEPHANE</mark><br>N° <mark>0047-2291-8830</mark><br>▮▯▮▮▯▮▯▮▮▯▮▯▮",cap:"Rivages Electriques, exceptionnels comme toujours ! On se retrouve dans 8 mois à Nantes !",t:"2 mars",likes:52,c:[],risk:"Billet : nom, numéro et code-barres exploitables (fraude / revente / ingénierie sociale)."},
+ {src:"assets/guitare-acoustique.jpg",e:"🎸",bg:"linear-gradient(#ffd8a8,#e8590c)",d:"Guitare acoustique Taylor",cap:"Nouvelle acoustique : Taylor 214ce 😍 #taylorguitars",t:"3 février",likes:131,c:[["Julien Roche","Fais-moi écouter !"]]},
+ {src:"assets/vinyle.jpg",e:"💿",bg:"linear-gradient(#d0bfff,#7048e8)",d:"Vinyle David Bowie posé sur la platine",cap:"Bowie, for ever 🖤 #bowie #vinyl",t:"8 janvier",likes:77,c:[]},
+  {src:"assets/burger-maison.jpg",e:"☕",bg:"linear-gradient(#e6ccb2,#9c6644)",d:"Burger maison et frites",cap:"Une tuerie !",t:"décembre 2025",likes:22,c:[]},
+ {src:"assets/star-plage.png",e:"🎶",bg:"linear-gradient(#ffa8a8,#c92a2a)",d:"Golden retriever se secouant dans l'eau",cap:"Première baignade pour Star 😍🐶 Impossible de la faire sortir de l'eau ! ",t:"octobre 2025",likes:89,c:[]},
+ {src:"assets/biarritz-plage.jpg",e:"🏖️",bg:"linear-gradient(#99e9f2,#3bc9db)",d:"Plage de Split",cap:"Croatie 2025 🇭🇷 #split #croatia",loc:"Plaža Kaštelet, Split, Croatia",t:"octobre 2025",likes:98,c:[]}]};
+
+function insta(){return `<div class="top"><b style="font-family:cursive;font-style:italic;font-size:24px;color:var(--tx)">Instagram</b><a href="#/">← Retour</a></div>
+<div class="ig"><div class="igh"><div class="av">${D.emoji}</div><div><h2 class="${IG.userRisk?"risk":""}">${IG.user}</h2>
+<div><span><b>212</b> publications</span><span><b>486</b> abonnés</span><span><b>391</b> suivis</span></div>
+<p><b>${D.name}</b><br>${IG.bio}</p>${risk(IG.userRisk).replace("margin:10px -16px -14px","")}</div></div>
+<div class="hl">${IG.hl.map(h=>`<div><div class="av">${h[0]}</div>${h[1]}</div>`).join("")}</div>
+<div class="grid">${IG.P.map((p,i)=>`<div onclick="openIG(${i})">${photo(p)}</div>`).join("")}</div>
+<div id="ov" class="ov" onclick="if(event.target===this)this.style.display='none'"></div></div>`}
+
+function openIG(i){const p=IG.P[i];$("#ov").innerHTML=`<div class="mo card${cls(p.risk)}" style="padding-top:0">${photo(p,"","ig-"+i)}
+<p><b>${IG.user}</b> ${p.cap}</p>${p.loc?`<div class="lt2" style="color:var(--mut)">📍 ${p.loc}</div>`:""}
+<div style="color:var(--mut);font-size:13px">❤️ ${p.likes} · ${p.t}</div>
+${p.c.map(c=>`<div class="cm"><div class="av">🙂</div><div><b>${c[0]}</b>${c[1]}</div></div>`).join("")}${risk(p.risk)}</div>`;$("#ov").style.display="flex"}
+
+/* ===== LINKEDIN ===== */
+function linkedin(){return `<div class="li" style="min-height:100vh"><div class="top"><b style="color:#0a66c2;font-size:24px">in</b><div class="s">🔍 Rechercher</div><a href="#/">← Retour</a></div>
+<div class="wrap" style="padding:14px 8px"><div class="card" style="padding:0"><div class="cover"></div><div style="padding:0 20px 16px">
+<div class="av" style="width:130px;height:130px;font-size:66px;margin-top:-65px;border:4px solid var(--card)">${D.emoji}</div>
+<h2 style="margin:8px 0 2px">${D.name}</h2><div>Chargé de comptes chez <b>Assurances Val-de-Loire</b></div>
+<div class="lt2">Tours, Centre-Val de Loire, France · 500+ relations</div></div></div>
+
+<div class="card risk"><h3>Coordonnées</h3>
+<div>🏠 <mark>12 rue des Tanneurs, 37000 Tours</mark></div>
+<div>🎂 Date de naissance : <mark>14 mars 1985</mark></div>
+<div>📞 <mark>06 39 98 21 47</mark></div>
+<div>✉️ <mark>s.fevrier@vdl-assurances.fr</mark> · <mark>stephane.fevrier85@gmail.com</mark></div>
+<div class="note">⚠ Adresse postale complète, date de naissance, téléphone et e-mails (pro et perso) : tout pour usurper l'identité, hameçonner ou démarcher frauduleusement.</div></div>
+
+<div class="card risk"><h3>Expérience</h3>
+<div><b>Chargé de comptes</b> · Assurances Val-de-Loire<br><span class="lt2">août. 2025 – aujourd'hui · Tours · Portefeuille grands comptes, équipe de 6 personnes</span></div><hr>
+<div><b>Chargé de comptes</b> · Fiducia Assurances<br><span class="lt2">sept. 2019 – aujourd'hui · Tours</span></div><hr>
+<div><b>Conseiller clientèle</b> · Crédit Ligérien<br><span class="lt2">mars 2013 – août 2019 · Tours</span></div><hr>
+<div><b>Assistant commercial</b> · Mutuelle du Val<br><span class="lt2">sept. 2009 – févr. 2013 · Blois</span></div>
+<div class="note">⚠ Employeur actuel, poste, équipe et parcours détaillé : matière pour du spear phishing, de faux recruteurs ou une fraude « au président ».</div></div>
+
+<div class="card risk"><h3>Formation</h3>
+<div><b>Université de Tours</b> · Master Gestion de patrimoine<br><span class="lt2">2006 – 2008</span></div><hr>
+<div><b>Lycée <mark>Descartes</mark></b> · Baccalauréat ES<br><span class="lt2">Diplômé en <mark>2003</mark></span></div>
+<div class="note">⚠ Lycée et année du bac : questions de sécurité classiques, et recoupement avec l'âge et le commentaire de la tante sur Facebook.</div></div>
+
+<div class="card"><h3>Compétences</h3><span class="tag">Gestion de portefeuille</span><span class="tag">Négociation</span><span class="tag">Excel</span><span class="tag">Relation client</span><span class="tag">Management d'équipe</span></div>
+
+<div class="card risk"><h3>Recommandations</h3>
+<div><b>Isabelle Marchand</b> · DRH, Fiducia Assurances<br>« Stéphane est un collaborateur fiable et investi. Un plaisir de travailler avec lui au quotidien. »</div>
+<div class="note">⚠ Nom et fonction de la DRH : permet d'usurper cette personne dans un e-mail interne.</div></div>
+
+<div class="card"><h3>Activité</h3>
+<div><b>${D.name}</b><br class="lt2">Ravi de partager que notre équipe a atteint ses objectifs du trimestre ! Merci à tous 👏</div><hr>
+<div><b>Aurélien BARAT</b><br class="lt2">Bienvenue à <span style="color:#0a66c2">Stéphane Février</span>, notre nouveau collaborateur au sein de l'équipe "Experts et professionnels". Très fier de t'accueillir parmi nous.</div><hr>
+<div><b>${D.name}</b><br class="lt2">Un article intéressant sur la souscription responsable : <span style="color:#0a66c2">« Assurance et transition écologique »</span></div></div>
+</div></div>`}
+
+/* ===== ROUTEUR ===== */
+const edit=new URLSearchParams(location.search).get("edit")==="1";
+function render(){
+  const h=location.hash;K=0;
+  cur=h==="#/instagram"?"ig":h==="#/linkedin"?"in":"fb";
+  $("#app").innerHTML = h==="#/facebook"?facebook():h==="#/instagram"?insta():h==="#/linkedin"?linkedin():landing();
+  document.body.classList.toggle("t",teacher);document.body.classList.toggle("e",edit);
+  const a=D.avatar||src("avatar");   // portrait de Stéphane, remplacé partout
+  document.querySelectorAll(".av").forEach(e=>{if(e.textContent===D.emoji){e.dataset.k="avatar";if(a){e.textContent="";e.style.background=`url(${a}) center/cover`}}});
+  const bn=D.banner1||src("banner1");   // bannière Facebook + LinkedIn
+  document.querySelectorAll(".cover").forEach(e=>{e.dataset.k="banner1";if(bn)e.style.background=`url(${bn}) center/cover`});
+  scrollTo(0,0);
+}
+addEventListener("click",ev=>{ /* mode ?edit=1 : remplacer une photo */
+  if(!edit)return;const t=ev.target.closest("[data-k]");if(!t)return;ev.preventDefault();ev.stopPropagation();const k=t.dataset.k;
+  if(ev.shiftKey){try{localStorage.removeItem("img:"+k)}catch(e){}return render()}
+  const f=document.createElement("input");f.type="file";f.accept="image/*";
+  f.onchange=()=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{
+    const s=Math.min(1,900/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*s;c.height=im.height*s;
+    c.getContext("2d").drawImage(im,0,0,c.width,c.height);
+    try{localStorage.setItem("img:"+k,c.toDataURL("image/jpeg",.8))}catch(e){alert("Stockage navigateur plein")}
+    render()};im.src=r.result};r.readAsDataURL(f.files[0])};f.click()},true);
+$("#tt").onclick=()=>{teacher=!teacher;render()};
+addEventListener("hashchange",render);render();
+</script>
+</body>
+</html>
